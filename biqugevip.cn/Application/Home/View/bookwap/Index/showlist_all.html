@@ -1,0 +1,55 @@
+﻿<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+	<title>{$TDK.title}</title>
+	<meta name="keywords" content="{$TDK.keyword}">
+	<meta name="description" content="{$TDK.description}">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/{$theme}/css/ptm.min.css?v{$version}" />
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/{$theme}/css/skin.min.css" />
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/{$theme}/css/font-awesome.min.css" />
+</head>
+<body>
+<include file="Public/header_showlist" />
+<section class="ptm-content">
+	<include file="Public/nav_showlist" />
+	{$advcode.list_1.code_wap}
+	<div class="divHeight"></div>
+		<div class="aui-flex">
+			<div class="aui-flex-box">
+				<h2><img src="//s.weituibao.com/static/1526459690519/yc.png" alt="小说大全">全部小说</h2>
+			</div>
+		</div>
+		<ul class="pt-card pt-card-7">
+		<foreach name="articlelist" item="v">
+		<div class="book-li">
+		<li>
+			<div class="pt-cover">
+			<a href="{$v.rewriteurl}" title="{$v.title}"><img {$comset.src}="{$v.thumb}" alt="{$v.title}"></a></div>
+			<div class="pt-novel">
+				<div class="pt-name"><a href="{$v.rewriteurl}" style="color:#333;font-weight:bold" title="{$v.title}">{$v.title}</a></div>
+					<div class="pt-desc ptm-text-cut">简介:{$v.description}...</div>
+						<div class="s711">
+							<div class="s712">作者:{$v.author}</div>
+							<div class="s713" style="color:#4284ed;" >{$v.views}热度</div>
+							<div class="s713" style="color:#ed424b;" ><if condition="$articledb['full'] eq 0">连载中<else />已完成</if></div>
+							<div class="s713" style="color:#969ba3;" >{$v.catename_short}</div>
+						</div>
+			</div>
+		</li>
+		</div>
+		</foreach>
+		</ul>
+		<if condition="$pagehtml != ''">
+		<div class="ptm-card-footer" id="pages">
+			{$pagehtml}
+		</div>
+		</if>
+	<div class="divHeight"></div>
+	{$advcode.list_2.code_wap}
+</section>
+<div class="ptm-line-x"></div>
+<include file="Public/footer" />
+</body>
+</html>

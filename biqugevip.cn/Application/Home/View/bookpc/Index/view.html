@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Cache-Control" content="no-siteapp" />
+	<meta http-equiv="Cache-Control" content="no-transform" />
+	<title>{$TDK.title}</title>
+	<meta name="keywords" content="{$TDK.keyword}" />
+	<meta name="description" content="{$TDK.description}" />
+	<link rel="canonical" href="{$TDK.canonicalurl}"/>
+	<meta name="applicable-device" content="pc">
+	<meta http-equiv="mobile-agent" content="format=html5; url={$TDK.canonicalurl_m}">
+	<meta property="og:type" content="novel"/>
+	<meta property="og:title" content="{$articledb.title}"/>
+	<meta property="og:description" content="{$articledb.description}"/>
+	<meta property="og:image" content="{$articledb.thumb}"/>
+	<meta property="og:novel:category" content="{$articledb.catename}"/>
+	<meta property="og:novel:author" content="{$articledb.author}"/>
+	<meta property="og:novel:book_name" content="{$articledb.title}"/>
+	<meta property="og:novel:read_url" content="{$TDK.canonicalurl}"/>
+	<meta property="og:url" content="{:C('PCHOST')}{$articledb.firstchapterurl}"/>
+	<meta property="og:novel:status" content="<if condition="$articledb['full'] eq 0">连载中<else />已完成</if>"/>
+	<meta property="og:novel:update_time" content="{$articledb.time}"/>
+	<meta property="og:novel:latest_chapter_name" content="{$articledb.lastchapter}"/>
+	<meta property="og:novel:latest_chapter_url" content="{:C('PCHOST')}{$articledb.lastchapterurl}"/>
+	<link rel="stylesheet" href="__PUBLIC__/{$theme}/css/style.css?v{$version}" />
+	<script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/{$theme}/js/header.js?v{$version}"></script>
+	<script type="text/javascript" src="__PUBLIC__/layer/layer.js"></script>
+	<link rel="stylesheet" href="//at.alicdn.com/t/font_626180_rzkibgk7ogl.css">
+	<script>var bookid = '{$TDK.oid}', hash = '{$TDK.hash}', index_rule = '{:C('ID_RULE')}', cindex_rule = '{:C('CID_RULE')}', znsid = '{$comset.znsid}';</script>
+</head>
+<body>
+<div id="wrapper">
+	<include file="Public/header" />
+	<div class="dvcode">{$advcode.view_1.code}</div>
+	<div class="box_con">
+		<div class="con_top cf">
+		<a href="{$TDK.weburl}">{$TDK.webname}</a> &gt;<a href="{$TDK.cateurl}">{$articledb.catename} </a>&gt; <a href="{$TDK.canonicalurl}">{$articledb.title}</a>
+		</div>
+		<div id="maininfo">
+			<div id="info">
+				<div class="booktitle cf">
+					<h1>{$articledb.title}</h1>
+				</div>
+				<p>作&nbsp;&nbsp;者：{$articledb.author}</p>
+				<p>动&nbsp;&nbsp;作：加入书架,  <a href="#footer">直达底部</a></p>
+				<p>最后更新：{$articledb.time}</p>
+				<p>最新章节：<a href="{$articledb.lastchapterurl}" target="_blank" title="{$articledb.title}最新章节">{$articledb.lastchapter}</a></p>
+			</div>
+			<div id="intro">
+				{$articledb.content}
+			</div>
+		</div>
+		<div id="sidebar">
+			<div id="fmimg">
+				<img alt="{$articledb.title}" src="{$articledb.thumb}" width="125" height="150" onerror="this.src='__PUBLIC__/images/nocover.jpg'" />
+				<if condition="$articledb['full'] eq 0"><span class="b"></span><else /><span class="a"></span></if>
+			</div>
+		</div>
+	</div>
+	<div class="box_con">
+		<div id="list">
+			<dl>	
+				<dt>{$articledb.title} 最新章节列表</b><span id="loadingtip">（<img src="__PUBLIC__/{$theme}/images/loading.gif" />{$TDK.webname}马上给你呈现{$articledb.title}最新章节）</span></dt>
+				<div id="newchapter"><foreach name="newchaperlist" item="v2">
+				<dd><a href="{:reurl('chapter', $v2, $maindomain)}" target="_blank">{$v2.title}</a>
+				</dd>
+				</foreach>
+				</div>
+				{$advcode.view_2.code}
+				<dt>{$articledb.title} 小说全部目录</dt>
+				<foreach name="chapterdb" item="v3">
+				<dd><a href="{:reurl('chapter', $v3, $maindomain)}" target="_blank" >{$v3.title}</a>
+				</dd>
+				</foreach>
+			</dl>
+			<div id="listtj">《{$articledb.title}》相似小说推荐阅读：
+			<foreach name="dataarea_list.pc_view_text" item="v">
+			<a href="{$v.rewriteurl}">{$v.title}</a>、
+			</foreach>
+			<a href="{$TDK.canonicalurl}">{$articledb.title}</a>
+			</div>
+		</div>
+	</div>
+	<script id="bdlike_shell"></script><script>bdlike();</script>
+	<div class="dvcode">{$advcode.view_3.code}</div>
+	<div id="footer" name="footer">
+		<div class="footer_link"></div>
+		<div class="footer_cont">
+			<p>{$articledb.title}小说，作者{$articledb.author}，属于{$articledb.catename}类型，最新章节：{$articledb.lastchapter}最后更新时间：{$articledb.time}。本书由{$TDK.webname}转载收集{$articledb.title}最新章节无弹窗阅读。</p>
+			<p>{$TDK.gonggao1}</p>
+			<p>{$TDK.gonggao2}</p>{$statcode}
+		</div>
+	</div>
+</div>
+<script id="chapterhtml" type="text/html">
+	<dd><a href="{:C('HOME_URL')}{:C('CHAPTER_RULE')}" target="_blank">{title}</a></dd>
+</script>
+<script type="text/javascript" src="__PUBLIC__/{$theme}/js/footer.js?v{$version}"></script>
+<if condition="$comset.src neq 'src'">
+<script src="//cdn.bootcss.com/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script>
+<script>
+$(function() {
+	$('[rel-class=lazyload]').lazyload({effect: "fadeIn"});
+});
+</script>
+</if>
+{$advcode.global_footer.code}
+</body>
+</html>

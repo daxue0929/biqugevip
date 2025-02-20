@@ -1,0 +1,20 @@
+<header class="header">
+	<div class="header-div">
+			<a class="pc-logo" href="/"><img src="__PUBLIC__/{$theme}/images/logo.png" alt="{$TDK.webname}"></a>
+		<foreach name="category" key="key" item="vo">
+		<a href="{$vo['url']}" <if condition="$category[$key]['dir'] eq $cate">class="active"</if>>{$vo['name']}</a>
+		</foreach>
+		<span class="hide"></span>
+		<span class="pc-login">
+			<a class="register" href="{:U('/home/index/bookcase')}">书架</a>
+			<a class="login" href="{$catelist.top}">排行<i class="iconfont icon-fs-line"></i></a>
+		</span>
+		<span class="header-search">
+		<form action="{:U('/home/search')}" method="post">
+		<input type="hidden" name="action" value="search">
+		<input name="q" placeholder="输入书名/关键词" type="text" >
+		<button> <i class="iconfont icon-search" type="submit" ></i></button>
+		</form>
+		</span>
+	</div>
+</header>

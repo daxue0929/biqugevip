@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Cache-Control" content="no-siteapp" />
+	<meta http-equiv="Cache-Control" content="no-transform" />
+	<title>{$TDK.title}</title>
+	<meta name="keywords" content="{$TDK.keyword}" />
+	<meta name="description" content="{$TDK.description}" />
+	<link rel="canonical" href="{$TDK.canonicalurl}"/>
+	<meta name="applicable-device" content="pc">
+	<meta http-equiv="mobile-agent" content="format=html5; url={$TDK.canonicalurl_m}">
+	<link rel="stylesheet" href="__PUBLIC__/{$theme}/css/style.css?v{$version}" />
+	<script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/{$theme}/js/header.js?v{$version}"></script>
+	<script>var znsid = '{$comset.znsid}';</script>
+	<style type="text/css">
+		.header_logo a{background: none;text-indent: 0;font-size: 40px;font-weight: bold}.nav ul li:first-child {max-width: 90px;overflow: hidden;height: 46px;}
+	</style>
+</head>
+<body>
+<div id="wrapper">
+	<include file="Public/header" />
+	<div id="main">
+			<div id="newscontent">
+			<div class="l">
+				<h2>
+				{$TDK.webname}相似小说
+				</h2>
+				<ul>
+					<foreach name="updatelist" item="v">
+					<li>
+						<span class="s1">[{$v['catename']}]</span>
+						<span class="s2"><a href="{$v['rewriteurl']}"  title="{$TDK.webname} {$v['title']}">{$v['title']}</a></span>
+						<span class="s3"><a class="chapter" href="{$v['lastchapterurl']}" title="{$TDK.webname}{$v['title']}最新章节" target="_blank">更新到 {$v['lastchapter']}</a></span>
+						<span class="s4"><a>{$v.author}</a></span>
+						<span class="s5">{$v['updatetime']}</span>
+					</li>
+					</foreach>
+				</ul>
+			</div>
+			<div class="r">
+				<h2>
+				{$TDK.webname}小说同类型推荐
+				</h2>
+				<ul>
+					<assign name="k" value="0" />
+					<foreach name="newestlist" item="v">
+					<assign name="k" value="$k+1" />
+					<li>
+						<span class="num{$k} numer">{$k}</span>
+						<span class="s2"><a class="chaptea"  href="{$v['rewriteurl']}" title="{$TDK.webname} {$v['title']}">{$v['title']}</a></span>
+						<span class="s5"><a class="numce"><if condition="$articledb['full'] eq 0">连载<else />完本</if></a></span>
+					</li>
+					</foreach>
+				</ul>
+			</div>
+			<div class="clear">
+			</div>
+		</div>
+			<div class="clear">
+			</div>
+		</div>
+		<div class="dvcode">{$advcode.list_2.code}</div>
+	</div>
+	<div id="firendlink">
+		{$TDK.webname}友情连接：<foreach name="randseolist" item="v3"><a href="{$v3['rewriteurl']}" title="{$v3['sitename']}" target="_blank">{$v3['sitename']}</a></foreach>
+	</div>
+	<include file="Public/footer" />
+</div>
+</body>
+</html>

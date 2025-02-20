@@ -1,0 +1,294 @@
+<!doctype html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Cache-Control" content="no-siteapp" />
+	<meta http-equiv="Cache-Control" content="no-transform" />
+	<title>{$TDK.title}</title>
+	<meta name="keywords" content="{$TDK.keyword}" />
+	<meta name="description" content="{$TDK.description}" />
+	<link rel="canonical" href="{$TDK.weburl}"/>
+	<meta name="applicable-device" content="pc">
+	<meta http-equiv="mobile-agent" content="format=html5; url={$TDK.canonicalurl_m}">
+	<link rel="stylesheet" href="__PUBLIC__/{$theme}/css/style.css?v{$version}" />
+	<link rel="stylesheet" href="__PUBLIC__/{$theme}/css/c/zzsc.css" />
+	<link rel="stylesheet" href="//at.alicdn.com/t/font_626180_rzkibgk7ogl.css">
+</head>
+<body>
+<div id="wrapper">
+	<include file="Public/header" />
+	<div id="main">
+<!-- 小说第一板块101301 -->
+	<div class="huan1">
+<div id="gal">
+	<nav class="galnav">
+		<ul>
+			<li>
+				<input type="radio" name="btn" value="one" checked="checked" />
+				<label for="btn"></label>
+				<figure>
+					<img src="{$TDK.huandeng1}" />
+				</figure>
+			</li>
+			<li>
+				<input type="radio" name="btn" value="two" />
+				<label for="btn"></label>
+				<figure class="entypo-forward">
+					<img src="{$TDK.huandeng2}" />
+				</figure>
+			</li>
+			<li>
+				<input type="radio" name="btn" value="three" />
+				<label for="btn"></label>
+				<figure class="entypo-forward">
+					<img src="{$TDK.huandeng3}" />
+				</figure>
+			</li>
+		</ul>
+	</nav>
+</div>
+<div class="focusInfo">
+	<div class="focusInfoBox">
+		<h3 class="newNotice">书城推荐</h3>
+		<ul>
+		<foreach name="dataarea_list.pc_index_tuinilea" item="v">
+					<li><a class="name" href="{$v.rewriteurl}" target="_blank" title="《{$v.title}》">{$v.title}</a></li>
+		</foreach>
+		</ul>
+	</div>
+</div>
+</div>
+<!-- 第一板块结束 -->
+{$advcode.index_1.code}
+<!-- 第二板块开始 -->
+		<div id="hotcontent">
+			<div class="l">
+			<h3 class="lang">本周热门小说</h3>
+				<foreach name="dataarea_list.pc_index_fengtui" item="v">
+				<div class="item">
+					<div class="image">
+						<a href="{$v.rewriteurl}" title="《{$v.title}》在线阅读"><img {$comset.src}="{$v.thumb}" alt="{$TDK.webname} {$v.title}" width="72" height="96" onerror="this.src='__PUBLIC__/images/nocover.jpg'" /></a>
+					</div>
+					<dl>
+						<dt>
+						 <a href="{$v.rewriteurl}">{$v.title}</a>
+						</dt>
+						<dd>{$v.description}...</dd>
+						<div class="state-box cf">
+						<i>{$v.catename}</i>
+						<a class="author default"><img src="__PUBLIC__/{$theme}/images/zuozhei.png"/>{$v.author}</a></div>
+					</dl>
+					<div class="clear"></div>
+				</div>
+				</foreach>
+			</div>
+			<div class="r">
+			<h3 class="lang">好书榜</h3>
+			
+					<div class="s-index-side">
+					
+                <div class="part weekly game-top10 cls">
+                  <ul class="weekly-list cls">
+				<assign name="k" value="0" />
+				<foreach name="dataarea_list.pc_index_jingdian"  item='v' >
+				<assign name="k" value="$k+1" />
+<li>
+<div class="app-show-title"><span class="num s-index-org">{$k}.</span><a href="{$v.rewriteurl}" >{$v.title}</a></div>
+<div class="app-show-block">
+<a href="{$v.rewriteurl}" class="pic"><img {$comset.src}="{$v.thumb}" alt="{$TDK.webname} {$v.title}"  /><span class="mask mask2"></span></a>
+<div class="s-index-star s-index-star-{$k}"><div class="s-index-star-big wrap"><span class="one">&nbsp;</span><span class="two">&nbsp;</span><span class="three">&nbsp;</span><span class="four">&nbsp;</span><span class="five">&nbsp;</span></div></div>
+<a href="{$v.rewriteurl}"   class="event-exe-install s-index-down s-index-icon">阅&nbsp;读</a>
+</div>
+</li>	
+				</foreach>
+                 </ul>
+               </div>
+            </div>
+          </div>
+
+			<div class="clear"></div>
+		</div>
+<!-- 小说第二板块结束 -->
+<!-- 今日推荐小说 -->
+<div class="free-book-wrap mb20" id="j-freeBookWrap">
+	<div id="time-box" class="time-box fl" data-endtime="1561823999">
+		<div class="limit-wrap">
+			<h3 class="lang">今日小说推荐</h3>
+			<p class="type">
+				阅读热门小说
+			</p>
+			<div class="icon-time">
+			</div>
+			<p class="countdown" id="countdown">
+			{$data.time|default=time()|date='Y年m月d日',###}
+			</p>
+			<a class="blue" href="{$catelist.top}" target="_blank">{$TDK.webname}排行榜<span>&gt;</span></a>
+		</div>
+	</div>
+	<ul class="fl">
+	<foreach name="dataarea_list.pc_index_tuinile" item="v">
+		<li>
+		<div class="book-img">
+			<a href="{$v.rewriteurl}" target="_blank"><img {$comset.src}="{$v.thumb}" onerror="this.src='__PUBLIC__/images/nocover.jpg'" alt="《{$v.title}》" /></a>
+		</div>
+		<a class="name" href="{$v.rewriteurl}" target="_blank">{$v.title}</a>
+		<p>{$v.author}</p>
+		<a class="light-border-btn" href="{$v.rewriteurl}" target="_blank">阅读小说</a>
+		</li>
+	</foreach>
+	</ul>
+</div>
+{$advcode.index_2.code}
+<!-- 小说第三板块开始 -->
+			<div id="hotcontent">
+
+		  			<div class="t">
+			<h3 class="lang">玄幻阅读<em class="icona icon-xuanhuan"></em></h3>
+			
+					<div class="s-index-side">
+					
+                <div class="part weekly game-top10 cls">
+                  <ul class="weekly-list cls">
+				<assign name="k" value="0" />
+				<foreach name="dataarea_list.pc_index_xiuzhen"  item='v' >
+				<assign name="k" value="$k+1" />
+<li>
+<div class="app-show-title"><span class="num s-index-org">{$k}.</span><a href="{$v.rewriteurl}" >{$v.title}</a></div>
+<div class="app-show-block">
+<a href="{$v.rewriteurl}" class="pic"><img {$comset.src}="{$v.thumb}" alt="{$TDK.webname} {$v.title}"  /><span class="mask mask2"></span></a>
+<dd>{$v.description}</dd>
+</div>
+</li>	
+				</foreach>
+                 </ul>
+               </div>
+            </div>
+          </div>
+
+		  			<div class="t">
+			<h3 class="lang">网游阅读<em class="icona icon-chuanyeu"></em></h3>
+			
+					<div class="s-index-side">
+					
+                <div class="part weekly game-top10 cls">
+                  <ul class="weekly-list cls">
+				<assign name="k" value="0" />
+				<foreach name="dataarea_list.pc_index_chuanyue"  item='v' >
+				<assign name="k" value="$k+1" />
+<li>
+<div class="app-show-title"><span class="num s-index-org">{$k}.</span><a href="{$v.rewriteurl}" >{$v.title}</a></div>
+<div class="app-show-block">
+<a href="{$v.rewriteurl}" class="pic"><img {$comset.src}="{$v.thumb}" alt="{$TDK.webname} {$v.title}"  /><span class="mask mask2"></span></a>
+<dd>{$v.description}</dd>
+</div>
+</li>	
+				</foreach>
+                 </ul>
+               </div>
+            </div>
+          </div>
+
+		  			<div class="t">
+			<h3 class="lang">都市阅读<em class="icona icon-doushi"></em></h3>
+			
+					<div class="s-index-side">
+					
+                <div class="part weekly game-top10 cls">
+                  <ul class="weekly-list cls">
+				<assign name="k" value="0" />
+				<foreach name="dataarea_list.pc_index_dushi"  item='v' >
+				<assign name="k" value="$k+1" />
+<li>
+<div class="app-show-title"><span class="num s-index-org">{$k}.</span><a href="{$v.rewriteurl}" >{$v.title}</a></div>
+<div class="app-show-block">
+<a href="{$v.rewriteurl}" class="pic"><img {$comset.src}="{$v.thumb}" alt="{$TDK.webname} {$v.title}"  /><span class="mask mask2"></span></a>
+<dd>{$v.description}</dd>
+</div>
+</li>	
+				</foreach>
+                 </ul>
+               </div>
+            </div>
+          </div>
+
+		  			<div class="t">
+			<h3 class="lang">女生阅读<em class="icona icon-nvsheng"></em></h3>
+			
+					<div class="s-index-side">
+					
+                <div class="part weekly game-top10 cls">
+                  <ul class="weekly-list cls">
+				<assign name="k" value="0" />
+				<foreach name="dataarea_list.pc_index_wangyou"  item='v' >
+				<assign name="k" value="$k+1" />
+<li>
+<div class="app-show-title"><span class="num s-index-org">{$k}.</span><a href="{$v.rewriteurl}" >{$v.title}</a></div>
+<div class="app-show-block">
+<a href="{$v.rewriteurl}" class="pic"><img {$comset.src}="{$v.thumb}" alt="{$TDK.webname} {$v.title}"  /><span class="mask mask2"></span></a>
+<dd>{$v.description}</dd>
+</div>
+</li>	
+				</foreach>
+                 </ul>
+               </div>
+            </div>
+          </div>
+
+			<div class="clear"></div>
+		</div>
+<!-- 小说第三板块结束 -->
+{$advcode.index_2.code}
+<!-- 最新更新开始 -->
+		<div id="newscontent">
+			<div class="l">
+				<h2>
+					最近更新列表
+				</h2>
+				<ul>
+					<foreach name="updatelist" item="v">
+					<li>
+						<span class="s1">[{$v['catename']}]</span>
+						<span class="s2"><a href="{$v['rewriteurl']}" title="点击阅读《{$v['title']}》">{$v['title']}</a></span>
+						<span class="s3"><p class="vip"> </p> <a class="chapter" href="{$v['lastchapterurl']}" title="{$v['title']}{$v['lastchapter']}阅读" target="_blank">更新到 {$v['lastchapter']} </a></span>
+						<span class="s4"><a>{$v.author}</a></span>
+						<span class="s5">{$v['updatetime']}</span>
+					</li>
+					</foreach>
+				</ul>
+			</div>
+			<div class="r">
+				<h2>
+					最新入库小说
+				</h2>
+				<ul>
+					<assign name="k" value="0" />
+					<foreach name="newestlist" item="v">
+					<assign name="k" value="$k+1" />
+					<li>
+						<span class="num{$k} numer">{$k}</span>
+						<span class="s2"><a class="chaptea"  href="{$v['rewriteurl']}" title="最新收录小说《{$v['title']}》">{$v['title']}</a></span>
+						<span class="s5"><a class="numce"><if condition="$articledb['full'] eq 0">连载<else />完本</if></a></span>
+						
+					</li>
+					</foreach>
+				</ul>
+			</div>
+			<div class="clear">
+			</div>
+		</div>
+<!-- 最新入库小说结束 -->
+		{$advcode.index_3.code}
+	</div>
+	<div id="firendlink">
+		友情连接：<foreach name="TDK.flink" item="v3"><a href="{$v3['url']}" target="_blank">{$v3['name']}</a></foreach>
+	</div>
+<!-- js -->
+	<script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/{$theme}/js/header.js?v{$version}"></script>
+	<script type="text/javascript" src="__PUBLIC__/{$theme}/js/paihuang.js"></script>
+	<include file="Public/footer" />
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!-- 所有栏目 -->
+		<div class="aui-flex">
+			<div class="aui-flex-box">
+				<h2><img src="__PUBLIC__/{$theme}/xin2/images/2a.png" alt="">小说分类</h2>
+			</div>
+			<div class="aui-arrow">
+				<span><a href="{$catelist.top}">小说排行榜</a></span>
+			</div>
+		</div>
+<ul class="typelist">
+			<li><a href="{:U('/quanben')}">完本小说</a></li>
+			<foreach name="category" key="key" item="vo">
+			<li><a href="{$vo['url']}" <if condition="$category[$key]['dir'] eq $cate">class="current"</if>>{$vo['name']}</a></li>
+			</foreach>
+</ul>
+<!-- 所有栏目 结束-->

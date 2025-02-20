@@ -1,0 +1,242 @@
+﻿<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0,user-scalable=0" />
+	<title>{$TDK.title}</title>
+	<meta name="keywords" content="{$TDK.keyword}">
+	<meta name="description" content="{$TDK.description}">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/{$theme}/css/ptm.min.css?v{$version}" />
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/{$theme}/css/skin.min.css" />
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/{$theme}/css/font-awesome.min.css" />	
+</head>
+<body>
+<section class="ptm-content">
+<include file="Public/header" />
+ <!-- 轮播开始 -->
+		<div class="hot-img pop_ads_content" id="hot-img">
+			<div class="swiper-wrapper">
+			<div class="swiper-slide"><a href="#"><img src="{$TDK.huandeng1}" /></a></div>
+			<div class="swiper-slide"><a href="#"><img src="{$TDK.huandeng2}" /></a></div>
+			</div>
+			<div class="hot-btn-box"></div>
+		</div>
+<!-- 轮播 完-->
+<!-- 彩色图标导航开始 -->
+	 
+	                     <div class=" searchbox ptm-clearfix ">
+                        <a href="{$catelist.top}" class="aui-grids-item">
+                            <div class="aui-grids-item-hd">
+                                <img src="__PUBLIC__/{$theme}/xin2/images/1.png" alt="">
+                            </div>
+                            <div class="aui-grids-item-bd">小说排行
+                            </div>
+                        </a>
+                        <a href="{:U('/quanben')}" class="aui-grids-item">
+                            <div class="aui-grids-item-hd">
+                                <img src="__PUBLIC__/{$theme}/xin2/images/2.png" alt="">
+                            </div>
+                            <div class="aui-grids-item-bd">完本小说
+                            </div>
+                        </a>
+                        <a href="{$catelist.all}" class="aui-grids-item">
+                            <div class="aui-grids-item-hd">
+                                <img src="__PUBLIC__/{$theme}/xin2/images/3.png" alt="">
+                            </div>
+                            <div class="aui-grids-item-bd">小说书库
+                            </div>
+                        </a>
+                        <a href="{:U('/home/index/bookcase')}" class="aui-grids-item">
+                            <div class="aui-grids-item-hd">
+                                <img src="__PUBLIC__/{$theme}/xin2/images/4.png" alt="">
+                            </div>
+                            <div class="aui-grids-item-bd">我的书架
+                            </div>
+                        </a>
+                    </div>
+<!-- 彩色图标导航结束 -->
+<div class="divHeight"></div>
+<!-- 小说推荐开始 -->
+		<div class="aui-flex">
+			<div class="aui-flex-box">
+				<h2><img src="//s.weituibao.com/static/1526528404471/leading.png" alt="">{$TDK.webname}推荐</h2>
+			</div>
+			<div class="aui-arrow">
+				<span>更多</span>
+			</div>
+		</div>
+		<div class="aui-list-theme-box">
+				<foreach name="dataarea_list.wap_index_top" item="v">
+			<a href="{$v.rewriteurl}" class="aui-list-item">
+				<div class="aui-list-theme-img">
+					<img {$comset.src}="{$v.thumb}" alt="{$v.title}">
+				</div>
+				<div class="aui-list-theme-message">
+					<h3 class="aui-list-theme-title">{$v.title}</h3>
+				</div>
+			</a>
+				</foreach>
+		</div>
+<!-- 小说推荐结束 -->
+<div class="divHeight"></div>
+<!-- 小说版块第一部分结束 -->
+	{$advcode.index_1.code_wap}
+	<!-- 小说分类栏开始 -->
+	<!-- 玄幻 -->
+		<div class="aui-flex">
+			<div class="aui-flex-box">
+				<h2><img src="__PUBLIC__/{$theme}/xin2/images/1a.png" alt="">本周热门</h2>
+			</div>
+			<div class="aui-arrow">
+				<span><a href="{$catelist.top}">更多热门小说</a></span>
+			</div>
+		</div>
+		<ul class="pt-card pt-card-7">
+		<foreach name="dataarea_list.wap_zhouem" item="v">
+		<div class="book-li">
+		<li>
+			<div class="pt-cover">
+			<a href="{$v.rewriteurl}" title="{$v.title}"><img {$comset.src}="{$v.thumb}" alt="{$v.title}"></a></div>
+			<div class="pt-novel">
+				<div class="pt-name"><a href="{$v.rewriteurl}" style="color:#333;font-weight:bold" title="{$v.title}">{$v.title}</a></div>
+					<div class="pt-desc ptm-text-cut">简介:{$v.description}...</div>
+						<div class="s711">
+							<div class="s712">作者:{$v.author}</div>
+							<div class="s713" style="color:#4284ed;" >{$v.views}热度</div>
+							<div class="s713" style="color:#ed424b;" ><if condition="$articledb['full'] eq 0">连载中<else />已完成</if></div>
+							<div class="s713" style="color:#969ba3;" >{$v.catename_short}</div>
+						</div>
+			</div>
+		</li>
+		</div>
+		</foreach>
+		</ul>
+<div class="divHeight"></div>
+<!-- 所有栏目 -->
+		<div class="aui-flex">
+			<div class="aui-flex-box">
+				<h2><img src="__PUBLIC__/{$theme}/xin2/images/2a.png" alt="">小说分类</h2>
+			</div>
+			<div class="aui-arrow">
+				<span><a href="{$catelist.all}">进入小说书库</a></span>
+			</div>
+		</div>
+<ul class="typelist">
+			<li><a href="{:U('/quanben')}">完本小说</a></li>
+			<foreach name="category" key="key" item="vo">
+			<li><a href="{$vo['url']}" <if condition="$category[$key]['dir'] eq $cate">class="current"</if>>{$vo['name']}</a></li>
+			</foreach>
+</ul>
+<!-- 所有栏目 结束-->
+<div class="divHeight"></div>
+	<!-- 最新小说开始 -->
+	{$advcode.index_2.code_wap}
+		<div class="aui-flex">
+			<div class="aui-flex-box">
+				<h2><img src="__PUBLIC__/{$theme}/xin2/images/3a.png" alt="">已更新小说</h2>
+			</div>
+			<div class="aui-arrow">
+				<span>最新章节</span>
+			</div>
+		</div>
+		<div class="ptm-card-content">
+			<ul class="pt-card pt-card-6">
+				<foreach name="updatelist" item="v">
+		<div class="book-li">
+				<li>
+					<div class="pt-novel">
+						<div class="pt-one">
+							<span class="pt-author">{$v['updatetime']} </span>
+							<span class="pt-name"><a href="{$v['rewriteurl']}" title="{$v['title']}">{$v['title']}</a></span>
+							<span class="pt-author"> / <a>{$v.author}</a></span>
+						</div>
+						<div class="pt-desc ptm-text-cut "><a href="{$v['rewriteurl']}" title="{$v['title']} {$v['lastchapter']}" target="_blank">{$v['lastchapter']}</a></div>
+					</div>
+					<div class="pt-cover">
+						<a href="{$v['rewriteurl']}" title="{$v['title']}"><img {$comset.src}="{$v['thumb']}" alt="{$v['title']}"></a>
+					</div>
+				</li>
+			</div>
+				</foreach>
+			</ul>
+		</div>
+<div class="divHeight"></div>
+	<!-- 最新小说结束 -->
+	{$advcode.index_3.code_wap}
+	<!-- 友情链接开始 -->
+		<div class="aui-flex">
+			<div class="aui-flex-box">
+				<h2><img src="__PUBLIC__/{$theme}/xin2/images/3aa.png" alt="">友情链接</h2>
+			</div>
+			<div class="aui-arrow">
+				<span></span>
+			</div>
+		</div>
+		<div class="ptm-card-content">
+			<p class="friendlink">
+				<foreach name="TDK.flink" item="v3">
+				<a href="{$v3['url']}" target="_blank">{$v3['name']}</a>
+				</foreach>
+			</p>
+		</div>
+	<!-- 友情链接结束 -->
+	</div>
+</section>
+<div class="ptm-line-x"></div>
+<div class="footer">
+	<p>本站系基于互联网搜索引擎技术为您提供信息检索服务。</p>
+	<p>Copyright ©2017 {$statcode}</p>
+</div>
+<section class="ptm-bar ptm-fix ptm-search">
+	<div class="searchbox ptm-clearfix">
+<if condition="$comset.znsid neq ''">
+		<form action="http://zhannei.baidu.com/cse/search" name="searchbtm" method="get">
+			<input type="hidden" name="s" value="{$comset.znsid}">
+			<input name="q" placeholder="请输入小说名或作者名，勿错字" type="text" class="searchinput" required><button class="searchbtn ptm-btn-primary" type="submit">搜索</button>
+		</form>
+<else />
+		<form action="{:U('/home/search')}" name="searchbtm" method="post">
+			<input type="hidden" name="action" value="search">
+			<input name="q" placeholder="请输入小说名或作者名，勿错字" type="text" class="searchinput" required><button class="searchbtn ptm-btn-primary" type="submit">搜索</button>
+		</form>
+</if>
+	</div>
+</section>
+<script type="text/javascript" src="__PUBLIC__/{$theme}/js/zepto.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/{$theme}/js/base.js?v{$version}"></script>
+<script type="text/javascript" src="__PUBLIC__/trans.js?v{$version}"></script>
+<script src="__PUBLIC__/{$theme}/js/swipeslide.min.js"></script> 
+<if condition="$comset.src neq 'src'">
+<script src="//cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script>
+<script>
+$(function() {
+	jQuery('[rel-class=lazyload]').lazyload({effect: "fadeIn"});
+});
+</script>
+</if>
+{$advcode.global_footer.code_wap}
+	<script type="text/javascript">
+	//轮播
+			var mySwiper = new Swiper('#hot-img', {
+				pagination : '.hot-btn-box',
+				autoplay : 5000,
+				loop : true,
+				grabCursor : true,
+				paginationClickable : true,
+				onTouchEnd : function() {
+					mySwiper.startAutoplay();
+				}
+			});
+			
+ $(".avt").click(function(){
+	  var index1=$(this).index();
+	  $(this).addClass("on1").siblings().removeClass("on1")
+	  $("#teb0,#teb1,#teb2,#teb3").hide();
+	  $("#teb"+index1).show();
+  })
+		
+    </script>
+
+</body>
+</html>

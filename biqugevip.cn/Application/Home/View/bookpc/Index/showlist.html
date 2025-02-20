@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Cache-Control" content="no-siteapp" />
+	<meta http-equiv="Cache-Control" content="no-transform" />
+	<title>{$TDK.title}</title>
+	<meta name="keywords" content="{$TDK.keyword}" />
+	<meta name="description" content="{$TDK.description}" />
+	<link rel="canonical" href="{$TDK.canonicalurl}"/>
+	<meta name="applicable-device" content="pc">
+	<meta http-equiv="mobile-agent" content="format=html5; url={$TDK.canonicalurl_m}">
+	<link rel="stylesheet" href="__PUBLIC__/{$theme}/css/style.css?v{$version}" />
+	<script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/{$theme}/js/header.js?v{$version}"></script>
+	<link rel="stylesheet" href="//at.alicdn.com/t/font_626180_rzkibgk7ogl.css">
+	<script>var znsid = '{$comset.znsid}';</script>
+</head>
+<body>
+<div id="wrapper">
+	<include file="Public/header" />
+	{$advcode.list_1.code}
+
+<div class="all-pro-wrap box-center cf">
+     <div class="range-sidebar fl">
+          <div class="inner-wrap">
+              <div class="selected">
+			  <p>
+			  <span>已选</span>
+                <a class="all" href="javascript:" type="all">{$TDK.catename}</a>
+              </p>
+              </div>
+                <div class="select-list">
+			      <div class="work-filter type-filter">
+			           <h3>分类</h3>
+					   <ul type="category">
+					      <li><a href="{$catelist.all}">全部小说</a></li>
+						  <li><a href="{:U('/quanben')}">完本小说</a></li>
+					   		<foreach name="category" key="key" item="vo">
+						  <li><a href="{$vo['url']}" <if condition="$category[$key]['dir'] eq $cate">class="current"</if>>{$vo['name']}</a></li>
+		                   </foreach>
+					   </ul>
+                   </div>
+				 <div class="work-filter">
+				    <h3>最新</h3>
+					 <ul type="size">
+					 <foreach name="newestlist" item="v">
+					 
+					  <li>
+						<span class="s2"><a href="{$v.rewriteurl}" title="{$TDK.catename}推荐《{$v.title}》" target="_blank">{$v.title}</a></span>
+					  </li>
+					 
+					 </foreach>
+					  </ul>
+				   
+				 </div> 
+                </div>         
+          </div>
+     </div>
+    <div class="main-content-wrap fl" data-l1="5">
+	
+                  <div class="right-book-list">
+                      <ul>
+					    <foreach name="hotlist" item="v" start="1" end="2" >
+	                   <li>
+                          <div class="book-img">
+                             <a href="{$v['rewriteurl']}" target="_blank" title="阅读{$TDK.catename}《{$v['title']}》">
+						     <img {$comset.src}="{$v['thumb']}" alt="{$v['title']}" width="103" height="138" onerror="this.src='__PUBLIC__/images/nocover.jpg'" />
+                             </a>
+                           </div>
+                          <div class="book-info">
+                             <h3><a href="{$v['rewriteurl']}" target="_blank" title="{$v['title']}小说信息">{$v['title']}</a></h3>
+                             <h4><a class="default">{$v.author}</a></h4>
+                             <p class="tag"><span class="org">{$TDK.catename}</span><span class="pink"><if condition="$articledb['full'] eq 0">连载<else />完本</if></span><span class="blue">{$v.views}热度</span></p>
+                             <p class="intro">
+                               {$v.description}
+                             </p>
+                          </div>
+                      </li>
+						     </foreach>
+						</ul>
+	              </div>
+	  </div>
+	  			 <div class="bos1">
+				<h2>{$TDK.catename}更新列表</h2>
+				<ul>
+					<foreach name="articlelist" item="v">
+					<li class="item-cover">
+						<a href="{$v['rewriteurl']}" title="好看的{$TDK.catename}{$v['title']}">
+							<img {$comset.src}="{$v['thumb']}" alt="{$v['title']}小说阅读" onerror="this.src='__PUBLIC__/images/nocover.jpg'" />
+							<h3>{$v['title']}</h3>
+						</a>
+					</li>
+					</foreach>
+				</ul>
+				<div class="pages">
+					{$pagehtml}
+				</div>
+			</div>
+</div>
+	<include file="Public/footer" />
+</div>
+</body>
+</html>

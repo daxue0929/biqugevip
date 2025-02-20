@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Cache-Control" content="no-siteapp" />
+	<meta http-equiv="Cache-Control" content="no-transform" />
+	<title>小说搜索_{$TDK.webname}</title>
+	<link rel="canonical" href="{$TDK.weburl}"/>
+	<meta name="applicable-device" content="pc">
+	<link rel="stylesheet" href="__PUBLIC__/{$theme}/css/style.css?v{$version}" />
+	<script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/{$theme}/js/header.js?v{$version}"></script>
+	<link rel="stylesheet" href="//at.alicdn.com/t/font_626180_rzkibgk7ogl.css">
+	<script>var znsid = '{$comset.znsid}';</script>
+</head>
+<body>
+<div id="wrapper">
+	<include file="Public/header" />
+	<div id="main">
+		<div id="hotcontent">
+			<div class="inner searchbox cf">
+				<form action="{:U('/home/search')}" method="post">
+				<input type="hidden" name="action" value="search">
+				<input name="q" placeholder="请输入小说名或作者名，勿错字" type="text" class="searchinput" required><button class="searchbtn" type="submit">搜索</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<include file="Public/footer" />
+</div>
+</body>
+</html>

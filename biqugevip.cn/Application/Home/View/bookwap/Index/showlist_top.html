@@ -1,0 +1,126 @@
+﻿<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+	<title>{$TDK.title}</title>
+	<meta name="keywords" content="{$TDK.keyword}">
+	<meta name="description" content="{$TDK.description}">
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/{$theme}/css/ptm.min.css?v{$version}" />
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/{$theme}/css/skin.min.css" />
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/{$theme}/css/font-awesome.min.css" />
+</head>
+<body>
+<include file="Public/header_paihang" />
+<section class="ptm-content">
+		<div class="aui-flex">
+			<div class="aui-flex-box">
+				<h2><img src="//s.weituibao.com/static/1526459690519/dy.png" alt="">小说排行榜</h2>
+			</div>
+			<div class="aui-arrow">
+				<span><a href="{$catelist.all}">进入书库</a></span>
+			</div>
+		</div>
+	<div class="ptm-tab ptm-tab-sm mt15" style="padding:0 10px;">
+		<ul class="ptm-tab-nav ptm-tab-border">
+			<li class="active">周人气</li>
+			<li>月人气</li>
+			<li>总人气</li>
+		</ul>
+	</div>
+	<div class="ptm-tab-content-item active mt15">
+		<div class="ptm-tab-content">
+			<div class="ptm-card">
+					<ul class="pt-card pt-card-4">
+					<assign name="i" value="0" />
+					<foreach name="dataarea_list.wap_top_week" item="v">
+					<assign name="i" value="$i+1" />
+					<div class="book-li">
+						<li>
+							<div class="pt-icon">
+								<i class="start">{$i}</i>
+							</div>
+							<div class="pt-cover">
+								<a href="{$v.rewriteurl}" title="{$v.title}"><img {$comset.src}="{$v.thumb}" alt="{$v.title}" /></a>
+							</div>
+							<div class="pt-novel">
+								<div class="pt-num ptm-pull-right"><span class="ptm-text-warning">{$v.weekviews}</span></div>
+								<div class="pt-name"><a href="{$v.rewriteurl}" title="{$v.title}">{$v.title}</a></div>
+								<div class="pt-desc ptm-text-cut"><a href="{$v.rewriteurl}">{$v.description}</a></div>
+							</div>
+						</li>
+					</div>
+					</foreach>
+					</ul>
+			</div>
+		</div>
+	</div>
+	<div class="ptm-tab-content-item mt15">
+		<div class="ptm-tab-content">
+			<div class="ptm-card">
+					<ul class="pt-card pt-card-4">
+					<assign name="i" value="0" />
+					<foreach name="dataarea_list.wap_top_month" item="v">
+					<assign name="i" value="$i+1" />
+					<div class="book-li">
+						<li>
+							<div class="pt-icon">
+								<i class="start">{$i}</i>
+							</div>
+							<div class="pt-cover">
+								<a href="{$v.rewriteurl}" title="{$v.title}"><img {$comset.src}="{$v.thumb}" alt="{$v.title}" /></a>
+							</div>
+							<div class="pt-novel">
+								<div class="pt-num ptm-pull-right"><span class="ptm-text-warning">{$v.monthviews}</span></div>
+								<div class="pt-name"><a href="{$v.rewriteurl}" title="{$v.title}">{$v.title}</a></div>
+								<div class="pt-desc ptm-text-cut"><a href="{$v.rewriteurl}">{$v.description}</a></div>
+							</div>
+						</li>
+					</div>
+					</foreach>
+					</ul>
+			</div>
+		</div>
+	</div>
+	<div class="ptm-tab-content-item mt15">
+		<div class="ptm-tab-content">
+			<div class="ptm-card">
+					<ul class="pt-card pt-card-4">
+					<assign name="i" value="0" />
+					<foreach name="dataarea_list.wap_top_all" item="v">
+					<assign name="i" value="$i+1" />
+					<div class="book-li">
+						<li>
+							<div class="pt-icon">
+								<i class="start">{$i}</i>
+							</div>
+							<div class="pt-cover">
+								<a href="{$v.rewriteurl}" title="{$v.title}"><img {$comset.src}="{$v.thumb}" alt="{$v.title}" /></a>
+							</div>
+							<div class="pt-novel">
+								<div class="pt-num ptm-pull-right"><span class="ptm-text-warning">{$v.views}</span></div>
+								<div class="pt-name"><a href="{$v.rewriteurl}" title="{$v.title}">{$v.title}</a></div>
+								<div class="pt-desc ptm-text-cut"><a href="{$v.rewriteurl}">{$v.description}</a></div>
+							</div>
+						</li>
+					</div>
+					</foreach>
+					</ul>
+			</div>
+		</div>
+	</div>
+<div class="ptm-line-xa" style=" height: 20px;background: #f5f5f500;"></div>
+	<div class="divHeight"></div>
+	{$advcode.list_1.code_wap}
+	{$advcode.list_2.code_wap}
+</section>
+<div class="ptm-line-x"></div>
+<include file="Public/footer" />
+<script type="text/javascript" src="__PUBLIC__/{$theme}/js/ptm.min.js"></script>
+<script>
+	$(function () {
+		$ptm.tab($('.ptm-tab-nav.ptm-tab-border li'), $('.ptm-tab-content-item'));
+	})
+</script>
+</body>
+</html>
